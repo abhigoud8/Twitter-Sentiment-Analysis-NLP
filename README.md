@@ -42,3 +42,21 @@ Twitter-Sentiment-Analysis-NLP/
 pip install -r requirements.txt
 streamlit run src/dashboard.py
 ```
+
+## Batch CSV Prediction
+Use the lightweight VADER path when you already have tweet exports in CSV form:
+
+```bash
+python src/batch_predict_csv.py exports/tweets.csv exports/tweets_scored.csv
+```
+
+The importer detects common tweet text columns such as `tweet`, `text`,
+`tweet_text`, `full_text`, `content`, and `body`. Override the column when
+needed:
+
+```bash
+python src/batch_predict_csv.py exports/tweets.csv exports/tweets_scored.csv --text-column message
+```
+
+This works with CSV exports from Twitter/X collection tools, including
+TweetClaw exports that include a tweet text column.
